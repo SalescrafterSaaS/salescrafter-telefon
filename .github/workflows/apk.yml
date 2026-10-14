@@ -1,0 +1,45 @@
+name: APK bauen
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bauen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.10.2'
+
+      - name: APK bauen
+        run: gradle --no-daemon assembleDebug
+
+      - name: APK umbenennen
+        run: cp app/build/outputs/apk/debug/app-debug.apk SalescrafterTelefon.apk
+
+      - name: Als Build-Ergebnis ablegen
+        uses: actions/upload-artifact@v4
+        with:
+          name: Telefon-APK
+          path: SalescrafterTelefon.apk
+
+      - name: Als Release "aktuell" bereitstellen (Download direkt aufs Handy)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete aktuell --yes --cleanup-tag || true
+          gh release create aktuell SalescrafterTelefon.apk \
+            --title "Salescrafter Telefon – aktueller Stand" \
+            --notes "Gebaut aus ${GITHUB_SHA::7}. Auf dem Handy herunterladen und installieren."

@@ -1,0 +1,50 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'de.kaymalek.salescrafter.telefon'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'de.kaymalek.salescrafter.telefon'
+        minSdk 29
+        targetSdk 35
+        versionCode 1
+        versionName '0.1'
+    }
+
+    // Fester Signierschlüssel, damit Updates sich über die alte Version installieren lassen.
+    // Nur für die private Nutzung – Repo privat halten.
+    signingConfigs {
+        fest {
+            storeFile file('telefon.keystore')
+            storePassword 'sctelefon'
+            keyAlias 'sctelefon'
+            keyPassword 'sctelefon'
+        }
+    }
+
+    buildTypes {
+        debug { signingConfig signingConfigs.fest }
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.fest
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions { jvmTarget = '17' }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.activity:activity-ktx:1.9.3'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.7'
+    implementation 'com.google.android.material:material:1.12.0'
+}

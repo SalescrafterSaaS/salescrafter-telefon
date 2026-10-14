@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            android:text="Salescrafter Telefon"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- Einrichtung -->
+        <LinearLayout android:id="@+id/karteEinrichtung" style="@style/Karte">
+            <TextView style="@style/Ueberschrift" android:text="Einrichtung" />
+            <TextView
+                android:id="@+id/tvRolle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRolle"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Als Telefon-App einrichten" />
+            <TextView
+                android:id="@+id/tvLeitung"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#FFFFFF" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLeitung"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Leitung wählen" />
+        </LinearLayout>
+
+        <!-- Nächster Kontakt -->
+        <LinearLayout style="@style/Karte">
+            <TextView android:id="@+id/tvPosition" style="@style/Ueberschrift" android:text="Nächster Kontakt" />
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvFirma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/tvNummer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/leise"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/tvNotiz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/leise"
+                android:textSize="14sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnUeberspringen"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:text="Überspringen" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAnrufen"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1.6"
+                    android:backgroundTint="@color/gruen"
+                    android:text="Anrufen"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Nummer wählen -->
+        <LinearLayout style="@style/Karte">
+            <TextView style="@style/Ueberschrift" android:text="Nummer wählen" />
+            <EditText
+                android:id="@+id/etNummer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Telefonnummer"
+                android:inputType="phone"
+                android:textColor="#FFFFFF"
+                android:textColorHint="@color/leise"
+                android:textSize="20sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPrivat"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:text="Privat" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnWaehlen"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.6"
+                    android:text="Akquise-Leitung" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Warteschlange -->
+        <LinearLayout style="@style/Karte">
+            <TextView style="@style/Ueberschrift" android:text="Warteschlange" />
+            <TextView
+                android:id="@+id/tvAnzahl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnListe"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:text="Liste einfügen" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnVonVorn"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Von vorn" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Ergebnisse -->
+        <LinearLayout style="@style/Karte">
+            <TextView style="@style/Ueberschrift" android:text="Letzte Ergebnisse" />
+            <TextView
+                android:id="@+id/tvErgebnisse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTeilen"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:text="Als CSV teilen" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLeeren"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Leeren" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

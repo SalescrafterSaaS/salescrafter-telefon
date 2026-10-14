@@ -1,0 +1,35 @@
+<resources>
+    <color name="hintergrund">#0F1420</color>
+    <color name="karte">#182033</color>
+    <color name="leise">#93A0B8</color>
+    <color name="akzent">#3F7DFF</color>
+    <color name="gruen">#22A559</color>
+    <color name="rot">#E5484D</color>
+
+    <style name="Theme.Telefon" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/akzent</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="android:windowBackground">@color/hintergrund</item>
+        <item name="android:statusBarColor">@color/hintergrund</item>
+        <item name="android:navigationBarColor">@color/hintergrund</item>
+    </style>
+
+    <style name="Karte">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">14dp</item>
+        <item name="android:background">@drawable/karte</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="Ueberschrift">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/leise</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+</resources>

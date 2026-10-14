@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Wer ist dran -->
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/akzent"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvFirma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvNummer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/leise"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/tvKontaktNotiz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/karte"
+                android:padding="12dp"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
+
+            <!-- Zweiter Anruf -->
+            <LinearLayout
+                android:id="@+id/zweitBanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/karte"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <TextView
+                    android:id="@+id/tvZweit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnZweit"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wechseln" />
+            </LinearLayout>
+
+            <!-- Ergebnis-Auswahl (nach dem Auflegen) -->
+            <LinearLayout
+                android:id="@+id/panelErgebnis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wie ist es gelaufen?"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipsErgebnis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:singleSelection="true" />
+            </LinearLayout>
+
+            <!-- Gesprächsnotiz: während und nach dem Gespräch -->
+            <EditText
+                android:id="@+id/etNotiz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/karte"
+                android:gravity="top"
+                android:hint="Gesprächsnotiz …"
+                android:inputType="textMultiLine|textCapSentences"
+                android:minLines="3"
+                android:padding="12dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="@color/leise" />
+
+            <!-- Tastatur für Durchwahl / Sprachmenü -->
+            <GridLayout
+                android:id="@+id/tastatur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:columnCount="3" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bedienung während des Gesprächs -->
+    <LinearLayout
+        android:id="@+id/panelGespraech"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnStumm"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:text="Stumm" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLaut"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:text="Lautspr." />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTastatur"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:text="Tasten" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnHalten"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Halten" />
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAuflegen"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/rot"
+            android:text="Auflegen"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- Eingehender Anruf -->
+    <LinearLayout
+        android:id="@+id/panelKlingeln"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAblehnen"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/rot"
+            android:text="Ablehnen"
+            android:textSize="18sp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAnnehmen"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/gruen"
+            android:text="Annehmen"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- Nach dem Gespräch -->
+    <LinearLayout
+        android:id="@+id/panelAbschluss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSpeichern"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:text="Speichern" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNaechster"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_weight="1.6"
+                android:backgroundTint="@color/gruen"
+                android:text="Speichern &amp; nächster"
+                android:textSize="16sp" />
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVerwerfen"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Ohne Ergebnis schließen" />
+    </LinearLayout>
+</LinearLayout>
